@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Background</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(90deg, rgb(255, 165, 0), rgb(255, 69, 0), rgb(255, 20, 147), rgb(75, 0, 130));
+            background-size: 600% 100%;
+            background-repeat: no-repeat;
+            animation: mygradient 24s linear infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        @keyframes mygradient {
+            0% { background-position: 0% }
+            100% { background-position: 100% }
+        }
+
+        .typing h2 {
+            color: #FFFFFF;
+            letter-spacing: 5px;
+            font-size: 4rem;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(90deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #wave:before, #wave:after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            left: -250vw;
+            width: 600vw;
+            height: 600vw;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 48% 52% 52% 48% / 48% 52% 48% 52%;
+            animation: wave 9s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+        }
+        
+        #wave:after { animation-delay: -3s; }
+
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.9);
+        }
+
+        .content img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="typing">
+            <h2>Animated Text</h2>
+        </div>
+        <img src="https://appkartstudio.com/wp-content/uploads/2023/03/ranjan1343_artificial_intelligence_tools_surrounding_a_human_be_d88b551f-70e0-4b65-b7cb-147140e8cdc2-480x480.png" alt="Logo"> 
+    </div>
+    
+    <div id="wave"></div>
+</body>
+</html>

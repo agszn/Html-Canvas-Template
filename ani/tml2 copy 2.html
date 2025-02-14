@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Page with Materialize</title>
+
+    <!-- Import Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Keyframes for gradient background */
+        @keyframes mygradient {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        /* Body Styling */
+        body {
+            margin: 0;
+            background: linear-gradient(90deg, rgb(245, 127, 23), rgb(233, 30, 99), rgb(156, 39, 176), rgb(63, 81, 181));
+            height: 100vh;
+            width: 100vw;
+            background-size: 600% 100%;
+            background-repeat: no-repeat;
+            animation: mygradient 24s linear infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #121215;
+            position: relative;
+        }
+
+        /* Materialize Text Styling */
+        .main-text {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: #fff;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .main-text img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(309deg, rgba(131, 58, 180, 1) 0%, rgba(200, 42, 18, 0.87718837535014) 79%);
+        }
+
+        /* Typing effect */
+        .typing h2 {
+            color: #4FC3F7;
+            letter-spacing: 5px;
+            font-size: 4rem;
+            overflow: hidden;
+            margin-bottom: 0;
+            animation: type 5s steps(11) infinite;
+        }
+
+        @keyframes type {
+            0%, 100% {
+                width: 0px;
+            }
+            30%, 60% {
+                width: 394.09px;
+            }
+        }
+
+        @keyframes cursorBlink {
+            0%, 75% {
+                opacity: 1;
+            }
+            76%, 100% {
+                opacity: 0;
+            }
+        }
+
+        .typing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: #4FC3F7;
+            animation: cursorBlink 0.8s steps(3) infinite;
+        }
+
+        /* Wave Animation */
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(90deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #wave {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #wave:before, #wave:after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            left: -250vw;
+            width: 600vw;
+            height: 600vw;
+            background: rgba(0, 0, 0, .375);
+            border-radius: 48% 52% 52% 48% / 48% 52% 48% 52%;
+            animation: wave 9s ease-in-out infinite;
+        }
+
+        #wave:after {
+            animation-delay: -3s;
+            animation-timing-function: linear;
+        }
+
+        /* Media Query for responsiveness */
+        @media(max-width: 330px) {
+            .typing h2 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Wrapper Div for Background Animation -->
+    <div class="wrapper">
+
+        <!-- Main Text and Image Section -->
+        <div class="main-text">
+            <img src="your-image.jpg" alt="Logo"> <!-- Replace with your image URL -->
+            <h1>Explore The Unknown</h1>
+            <p>Your Journey Begins Here</p>
+        </div>
+
+        <!-- Wave Animation -->
+        <div id="wave"></div>
+
+        <!-- Typing Text Animation -->
+        <div class="typing">
+            <h2>Welcome to My Website</h2>
+        </div>
+
+    </div>
+
+    <!-- Importing Materialize JS (for functionality like modals, etc.) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

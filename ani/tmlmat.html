@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Background</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(90deg, rgb(245, 127, 23), rgb(233, 30, 99), rgb(156, 39, 176), rgb(63, 81, 181));
+            background-size: 600% 100%;
+            background-repeat: no-repeat;
+            animation: mygradient 24s linear infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        @keyframes mygradient {
+            0% { background-position: 0% }
+            100% { background-position: 100% }
+        }
+
+        .typing {
+            position: relative;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #3333);
+        }
+
+        .typing h2 {
+            position: relative;
+            color: #4FC3F7;
+            letter-spacing: 5px;
+            font-size: 4rem;
+            overflow: hidden;
+            margin-bottom: 20px;
+            animation: type 5s steps(11) infinite;
+        }
+
+        @keyframes type {
+            0%, 100% { width: 0px; }
+            30%, 60% { width: 394.09px; }
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(90deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #wave:before, #wave:after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            left: -250vw;
+            width: 600vw;
+            height: 600vw;
+            background: rgba(0, 0, 0, .375);
+            border-radius: 48% 52% 52% 48% / 48% 52% 48% 52%;
+            animation: wave 9s ease-in-out infinite;
+        }
+        
+        #wave:after { animation-delay: -3s; }
+
+        .boxes div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+
+        .typing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: #4FC3F7;
+            animation: cursorBlink 0.8s steps(3) infinite;
+        }
+
+        @keyframes cursorBlink {
+            0%, 75% { opacity: 1; }
+            76%, 100% { opacity: 0; }
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .content img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        @media(max-width: 330px) {
+            .typing h2 {
+                font-size: 3rem;
+                animation: type 5s steps(10) infinite;
+            }
+
+            @keyframes type {
+                0%, 100% { width: 0px; }
+                30%, 60% { width: 305px; }
+            }
+        }
+
+        .boxes div:nth-child(1) { top: 70%; left: 10%; animation: box-animate 10s infinite; }
+        .boxes div:nth-child(2) { top: 20%; left: 80%; animation: box-animate 9s infinite; }
+        .boxes div:nth-child(3) { top: 50%; left: 50%; animation: box-animate 6s infinite; }
+        .boxes div:nth-child(4) { top: 80%; left: 60%; animation: box-animate 15s infinite; }
+        .boxes div:nth-child(5) { top: 30%; left: 30%; animation: box-animate 9s infinite; }
+        .boxes div:nth-child(6) { top: 90%; left: 90%; animation: box-animate 12s infinite; }
+        .boxes div:nth-child(7) { top: 80%; left: 30%; animation: box-animate 2s infinite; }
+        .boxes div:nth-child(8) { top: 40%; left: 20%; animation: box-animate 2s infinite; }
+        .boxes div:nth-child(9) { top: 50%; left: 80%; animation: box-animate 2s infinite; }
+
+        @keyframes box-animate {
+            0% { transform: scale(0) translateY(0) rotate(0); opacity: 1; }
+            100% { transform: scale(1.3) translateY(-90px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="typing">
+            <h2>Animated Text</h2>
+        </div>
+        <img src="https://appkartstudio.com/wp-content/uploads/2023/03/ranjan1343_artificial_intelligence_tools_surrounding_a_human_be_d88b551f-70e0-4b65-b7cb-147140e8cdc2-480x480.png" alt="Logo"> <!-- Replace with your image URL -->
+    </div>
+    
+    <div id="wave"></div>
+    <div class="boxes">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Materialize JavaScript (Optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
